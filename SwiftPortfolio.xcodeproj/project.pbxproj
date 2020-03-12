@@ -10,12 +10,12 @@
 		03929D2324193B1300AC927E /* PythoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03929D2224193B1300AC927E /* PythoController.swift */; };
 		03929D2824193B4900AC927E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 03929D2724193B4700AC927E /* Assets.xcassets */; };
 		03929D2A24193B5D00AC927E /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 03929D2924193B5D00AC927E /* Colors.xcassets */; };
-		03929D3224193F2100AC927E /* pythoLab.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 03929D3124193F2100AC927E /* pythoLab.storyboard */; };
 		03929D34241943D500AC927E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03929D33241943D500AC927E /* ViewController.swift */; };
 		039DA93424169A9600975379 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 039DA93324169A9600975379 /* AppDelegate.swift */; };
 		039DA93624169A9600975379 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 039DA93524169A9600975379 /* SceneDelegate.swift */; };
 		039DA93B24169A9600975379 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 039DA93924169A9600975379 /* Main.storyboard */; };
 		039DA94024169AA300975379 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 039DA93E24169AA300975379 /* LaunchScreen.storyboard */; };
+		03ACA577241A8A2600F18F05 /* pythoLab.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 03ACA575241A8A2600F18F05 /* pythoLab.storyboard */; };
 		4ABAFB9FF90DA61BAD52AF95 /* Pods_SwiftPortfolio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6CD484296151644291DC9606 /* Pods_SwiftPortfolio.framework */; };
 /* End PBXBuildFile section */
 
@@ -23,7 +23,6 @@
 		03929D2224193B1300AC927E /* PythoController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PythoController.swift; path = SwiftPortfolio/PythoController.swift; sourceTree = SOURCE_ROOT; };
 		03929D2724193B4700AC927E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = "../../GitHub/Objective C/p5x-mhayescs19/UIPortfolio/Assets.xcassets"; sourceTree = "<group>"; };
 		03929D2924193B5D00AC927E /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Colors.xcassets; path = "../../GitHub/Objective C/p5x-mhayescs19/UIPortfolio/Colors.xcassets"; sourceTree = "<group>"; };
-		03929D3124193F2100AC927E /* pythoLab.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = pythoLab.storyboard; sourceTree = "<group>"; };
 		03929D33241943D500AC927E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ViewController.swift; path = SwiftPortfolio/ViewController.swift; sourceTree = SOURCE_ROOT; };
 		039DA93024169A9600975379 /* SwiftPortfolio.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftPortfolio.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		039DA93324169A9600975379 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = ../AppDelegate.swift; sourceTree = "<group>"; };
@@ -31,6 +30,7 @@
 		039DA93A24169A9600975379 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		039DA93F24169AA300975379 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		039DA94124169AA300975379 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		03ACA576241A8A2600F18F05 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/pythoLab.storyboard; sourceTree = "<group>"; };
 		399D706737C9395DAEAFEB50 /* Pods-SwiftPortfolio.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftPortfolio.debug.xcconfig"; path = "Target Support Files/Pods-SwiftPortfolio/Pods-SwiftPortfolio.debug.xcconfig"; sourceTree = "<group>"; };
 		6CD484296151644291DC9606 /* Pods_SwiftPortfolio.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SwiftPortfolio.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BDC7CB9996311D61EE022508 /* Pods-SwiftPortfolio.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftPortfolio.release.xcconfig"; path = "Target Support Files/Pods-SwiftPortfolio/Pods-SwiftPortfolio.release.xcconfig"; sourceTree = "<group>"; };
@@ -102,7 +102,7 @@
 			children = (
 				039DA93924169A9600975379 /* Main.storyboard */,
 				039DA93E24169AA300975379 /* LaunchScreen.storyboard */,
-				03929D3124193F2100AC927E /* pythoLab.storyboard */,
+				03ACA575241A8A2600F18F05 /* pythoLab.storyboard */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -185,7 +185,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				039DA94024169AA300975379 /* LaunchScreen.storyboard in Resources */,
-				03929D3224193F2100AC927E /* pythoLab.storyboard in Resources */,
+				03ACA577241A8A2600F18F05 /* pythoLab.storyboard in Resources */,
 				03929D2A24193B5D00AC927E /* Colors.xcassets in Resources */,
 				039DA93B24169A9600975379 /* Main.storyboard in Resources */,
 				03929D2824193B4900AC927E /* Assets.xcassets in Resources */,
@@ -265,6 +265,14 @@
 				039DA93F24169AA300975379 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		03ACA575241A8A2600F18F05 /* pythoLab.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				03ACA576241A8A2600F18F05 /* Base */,
+			);
+			name = pythoLab.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
