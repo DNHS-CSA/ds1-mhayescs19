@@ -14,7 +14,7 @@ class PythoController: UIViewController {
          @IBOutlet weak var side1: UITextField!
          @IBOutlet weak var side2: UITextField!
          @IBOutlet weak var side3: UILabel!
-        @IBOutlet var triangleImage: [UILabel]!
+         @IBOutlet var triangleImage: [UILabel]!
     
          // Loads at initialization
          override func viewDidLoad() {
@@ -38,8 +38,8 @@ class PythoController: UIViewController {
             for side in self.triangleImage {
                 side.alpha = 0
             }
-            side1.resignFirstResponder()
-            side2.resignFirstResponder()
+            side1.resignFirstResponder() // makes the keyboard go away
+            side2.resignFirstResponder() // makes the keyboard go away
         // Do any additional setup after loading the view.
          }
     func hideTriangle() {
