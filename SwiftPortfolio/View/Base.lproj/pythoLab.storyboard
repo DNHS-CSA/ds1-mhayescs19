@@ -84,27 +84,36 @@
                                 <rect key="frame" x="94" y="449" width="186" height="188"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2gK-QM-78Q" userLabel="hypoImage">
-                                <rect key="frame" x="203" y="512" width="42" height="20"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text=" " lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2gK-QM-78Q" userLabel="hypoImage">
+                                <rect key="frame" x="203" y="512" width="6" height="20"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="TrebuchetMS" family="Trebuchet MS" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="82k-tw-opM" userLabel="leg1Image">
-                                <rect key="frame" x="59" y="540" width="42" height="20"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text=" " textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="82k-tw-opM" userLabel="leg1Image">
+                                <rect key="frame" x="95" y="540" width="6" height="20"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="TrebuchetMS" family="Trebuchet MS" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yOf-G6-70P" userLabel="leg2Image">
-                                <rect key="frame" x="161" y="634" width="42" height="20"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text=" " textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yOf-G6-70P" userLabel="leg2Image">
+                                <rect key="frame" x="197" y="634" width="6" height="20"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="TrebuchetMS" family="Trebuchet MS" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mgu-nV-Ofw">
+                                <rect key="frame" x="336" y="446" width="23" height="22"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" image="triangle.fill" catalog="system"/>
+                                <connections>
+                                    <action selector="toggleTriangleImageWithSender:" destination="nRg-47-050" eventType="touchUpInside" id="AIH-fK-jJ4"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="xG3-3y-94U"/>
@@ -113,9 +122,11 @@
                         <outlet property="side1" destination="OQk-3z-YJu" id="14e-W9-yrE"/>
                         <outlet property="side2" destination="Urf-AO-0uL" id="iTN-Iv-B2h"/>
                         <outlet property="side3" destination="cIe-JB-M9t" id="Qkh-To-LxT"/>
-                        <outletCollection property="triangleImage" destination="82k-tw-opM" collectionClass="NSMutableArray" id="bum-Rg-VWm"/>
-                        <outletCollection property="triangleImage" destination="yOf-G6-70P" collectionClass="NSMutableArray" id="txe-kX-faH"/>
-                        <outletCollection property="triangleImage" destination="2gK-QM-78Q" collectionClass="NSMutableArray" id="raQ-5A-e4x"/>
+                        <outlet property="toggleTriangleImage" destination="mgu-nV-Ofw" id="rsr-bG-6pR"/>
+                        <outlet property="triangleImage" destination="tYF-2j-VJn" id="Qrk-0D-aG0"/>
+                        <outletCollection property="triangleLabels" destination="82k-tw-opM" collectionClass="NSMutableArray" id="RIP-Za-QWY"/>
+                        <outletCollection property="triangleLabels" destination="yOf-G6-70P" collectionClass="NSMutableArray" id="E4r-Rq-mvu"/>
+                        <outletCollection property="triangleLabels" destination="2gK-QM-78Q" collectionClass="NSMutableArray" id="pyT-1h-mlI"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lnq-1d-OIi" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -125,5 +136,6 @@
     </scenes>
     <resources>
         <image name="Triangles" width="200" height="200"/>
+        <image name="triangle.fill" catalog="system" width="64" height="56"/>
     </resources>
 </document>

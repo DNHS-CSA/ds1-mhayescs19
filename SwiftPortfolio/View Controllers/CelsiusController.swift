@@ -46,6 +46,7 @@ class CelsiusController: UIViewController {
     degreesFahrenheit.resignFirstResponder() // makes keyboard go away
     }
     
+    
     /*
     // MARK: - Navigation
 
