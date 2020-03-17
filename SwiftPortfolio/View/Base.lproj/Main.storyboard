@@ -54,6 +54,9 @@
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="layer.CliptoBounds" value="YES"/>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <segue destination="zao-d3-nMu" kind="show" id="QaF-qA-6f7"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DK2-oI-n7o">
                                 <rect key="frame" x="16" y="323" width="165" height="75"/>
@@ -191,6 +194,16 @@
             </objects>
             <point key="canvasLocation" x="132" y="136.28185907046478"/>
         </scene>
+        <!--calculator-->
+        <scene sceneID="1ml-7E-5Du">
+            <objects>
+                <viewControllerPlaceholder storyboardIdentifier="calculator" storyboardName="calculator" referencedIdentifier="calculator" id="zao-d3-nMu" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="hbw-EZ-d3G"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="DAD-8Z-qNf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1676" y="91"/>
+        </scene>
         <!--pythoLab-->
         <scene sceneID="R0a-o1-E14">
             <objects>
@@ -199,7 +212,7 @@
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kga-xv-lEQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1583" y="92"/>
+            <point key="canvasLocation" x="1673" y="136"/>
         </scene>
         <!--celsiusLab-->
         <scene sceneID="ped-vW-My0">
@@ -209,7 +222,7 @@
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="urL-ks-a3T" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1602" y="158"/>
+            <point key="canvasLocation" x="1679" y="180"/>
         </scene>
     </scenes>
 </document>
