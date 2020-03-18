@@ -62,20 +62,43 @@ class CalcController: UIViewController {
     }
     //OPERATOR MANAGEMENT
     @IBAction func minusOp(_ sender: UIButton) {
+        saveOperator(opNumber: MINUS)
+        saveValue1()
+        clearCalcAreaLabel()
     }
     @IBAction func plusOp(_ sender: UIButton) {
+        saveOperator(opNumber: PLUS)
+        saveValue1()
+        clearCalcAreaLabel()
     }
-    @IBAction func multiplyOp(_ sender: UIButton) {
+    @IBAction func multiplyOp(_ sender: UIButton) {        saveOperator(opNumber: MULTIPLY)
+        saveValue1()
+        clearCalcAreaLabel()
     }
     @IBAction func divideOp(_ sender: UIButton) {
+        saveOperator(opNumber: DIVIDE)
+        saveValue1()
+        clearCalcAreaLabel()
     }
     @IBAction func squareRootOp(_ sender: UIButton) {
+        saveOperator(opNumber: SQRT)
+        saveValue1()
+        clearCalcAreaLabel()
     }
     @IBAction func fractionOp(_ sender: UIButton) {
+        saveOperator(opNumber: FRACTION)
+        saveValue1()
+        clearCalcAreaLabel()
     }
     @IBAction func cubeOp(_ sender: UIButton) {
+        saveOperator(opNumber: CUBE)
+        saveValue1()
+        clearCalcAreaLabel()
     }
     @IBAction func squareOp(_ sender: UIButton) {
+        saveOperator(opNumber: SQR)
+        saveValue1()
+        clearCalcAreaLabel()
     }
     //NUMBER MANAGEMENT
     @IBAction func press2(_ sender: UIButton) {
