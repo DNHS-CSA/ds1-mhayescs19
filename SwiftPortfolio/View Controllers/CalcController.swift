@@ -10,13 +10,26 @@ import UIKit
 
 class CalcController: UIViewController {
 
+    @IBOutlet weak var calcAreaLabel: UILabel!
+    var initialCalcAreaInputState:(Bool) = true // sets state for first number
+    var calcAreaNumber:(String) = " "
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
     }
-    func concatCalcAreaLabel(keyNumber: String){
-        <#function body#>
+    func setCalcAreaLabel (){
+        calcAreaLabel.text = calcAreaNumber
+    }
+    func concatCalcAreaLabel(keyNumber: String){ // keyNumber = variable name local to the function, "String" =
+        if initialCalcAreaInputState { // if initialCalcAreaInputState is true...
+            calcAreaNumber = keyNumber
+            initialCalcAreaInputState = false // sets state for second number
+        }else{
+            calcAreaNumber = calcAreaNumber + keyNumber
+        }
+        setCalcAreaLabel()
     }
     @IBAction func press1(_ sender: UIButton) {
         let keyNumber:(String) = "1"

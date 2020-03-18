@@ -408,6 +408,9 @@
                         <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="fQl-EU-GYs"/>
                     </view>
+                    <connections>
+                        <outlet property="calcAreaLabel" destination="y8w-k7-Wgp" id="dwa-m6-itq"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Iw3-OJ-cJp" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
