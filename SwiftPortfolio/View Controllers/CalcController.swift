@@ -16,7 +16,7 @@ class CalcController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        calcAreaLabel.text = " " // makes the calculator display a blank label
         // Do any additional setup after loading the view.
     }
     func setCalcAreaLabel (){
@@ -27,13 +27,13 @@ class CalcController: UIViewController {
             calcAreaNumber = keyNumber
             initialCalcAreaInputState = false // sets state for second number
         }else{
-            calcAreaNumber = calcAreaNumber + keyNumber
+            calcAreaNumber = calcAreaNumber + keyNumber // works like concatation in C, adds whatever the keyNumber is to the label
         }
-        setCalcAreaLabel()
+        setCalcAreaLabel() // goes to set label helper
     }
     @IBAction func press1(_ sender: UIButton) {
         let keyNumber:(String) = "1"
-        concatCalcAreaLabel(keyNumber: keyNumber)
+        concatCalcAreaLabel(keyNumber: keyNumber) // (what the new variable is going to be in the func: variable from current function)
     }
     @IBAction func press2(_ sender: UIButton) {
         let keyNumber:(String) = "2"
@@ -68,9 +68,14 @@ class CalcController: UIViewController {
         concatCalcAreaLabel(keyNumber: keyNumber)
     }
     @IBAction func press0(_ sender: UIButton) {
-        var keyNumber:(String) = "0"
+        let keyNumber:(String) = "0"
         concatCalcAreaLabel(keyNumber: keyNumber)
     }
+    @IBAction func pressDecimal(_ sender: UIButton) {
+        let keyNumber:(String) = "."
+        concatCalcAreaLabel(keyNumber: keyNumber)
+    }
+    
     /*
     // MARK: - Navigation
 
