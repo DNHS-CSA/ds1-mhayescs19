@@ -13,11 +13,36 @@ class CalcController: UIViewController {
     @IBOutlet weak var calcAreaLabel: UILabel!
     var initialCalcAreaInputState:(Bool) = true // sets state for first number
     var calcAreaNumber:(String) = " "
+    var value1:(Double) = 0
+    var value2:(Double) = 0
+    var mathOp:(Int) = 0
+    var calcAnswer:(Float) = 0
+    // new place for "#define" from C, use let instead
+    let PLUS = 0
+    let MINUS = 1
+    let MULTIPLY = 2
+    let DIVIDE = 3
+    let MODULO = 4
+    let SQR = 5
+    let CUBE = 6
+    let FRACTION = 7
+    let SQRT = 8
     
     override func viewDidLoad() {
         super.viewDidLoad()
         calcAreaLabel.text = " " // makes the calculator display a blank label
         // Do any additional setup after loading the view.
+    }
+    func saveOperator(opNumber: Int){
+        mathOp = opNumber
+    }
+    func saveValue1(){
+        value1 = Double(calcAreaLabel.text!)! // use of a bunch of bangs to avoid errors; unsure of use of bang on the double cast since "value1" is a double var
+    }
+    func clearCalcAreaLabel(){
+        initialCalcAreaInputState = true
+        calcAreaLabel.text = " "
+        calcAreaNumber = " "
     }
     func setCalcAreaLabel (){
         calcAreaLabel.text = calcAreaNumber
@@ -35,6 +60,24 @@ class CalcController: UIViewController {
         let keyNumber:(String) = "1"
         concatCalcAreaLabel(keyNumber: keyNumber) // (what the new variable is going to be in the func: variable from current function)
     }
+    //OPERATOR MANAGEMENT
+    @IBAction func minusOp(_ sender: UIButton) {
+    }
+    @IBAction func plusOp(_ sender: UIButton) {
+    }
+    @IBAction func multiplyOp(_ sender: UIButton) {
+    }
+    @IBAction func divideOp(_ sender: UIButton) {
+    }
+    @IBAction func squareRootOp(_ sender: UIButton) {
+    }
+    @IBAction func fractionOp(_ sender: UIButton) {
+    }
+    @IBAction func cubeOp(_ sender: UIButton) {
+    }
+    @IBAction func squareOp(_ sender: UIButton) {
+    }
+    //NUMBER MANAGEMENT
     @IBAction func press2(_ sender: UIButton) {
         let keyNumber:(String) = "2"
         concatCalcAreaLabel(keyNumber: keyNumber)
