@@ -9,10 +9,11 @@
 import UIKit
 
 class CalcController: UIViewController {
-
+    // nessecary components of calculator
     @IBOutlet weak var calcAreaLabel: UILabel!
     var initialCalcAreaInputState:(Bool) = true // sets state for first number
-    var calcAreaNumber:(String) = " "
+    var calcAreaNumber:(String) = String() // String() = empty string
+    var currentText:(String) = String()
     var value1:(Double) = 0
     var value2:(Double) = 0
     var mathOp:(Int) = 0
@@ -27,11 +28,32 @@ class CalcController: UIViewController {
     let CUBE = 6
     let FRACTION = 7
     let SQRT = 8
+    // defintion for swipe detector
+    @IBOutlet weak var displayDetector: UIImageView!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         calcAreaLabel.text = " " // makes the calculator display a blank label
-        // Do any additional setup after loading the view.
+        displayDetector.isUserInteractionEnabled = true
+        // swipe detector code
+        let swipeLeft = UISwipeGestureRecognizer(target: self, action: #selector(self.swipeGesture)) // actual recognizer
+        swipeLeft.direction = UISwipeGestureRecognizer.Direction.left // defines what direction swipe to look for
+        displayDetector.addGestureRecognizer(swipeLeft) // adds the gesture recognizer to the UIImageView "displayDetector"
+    }
+    @objc func swipeGesture(sender: UISwipeGestureRecognizer?){
+        //let range = currentText.index(currentText.endIndex, offsetBy: -2)..<currentText.endIndex
+        //currentText.removeSubrange(range)
+        currentText.insert(contentsOf:"\0", at: currentText.index(currentText.endIndex, offsetBy: -1))
+        //currentText.remove(at: currentText.index(currentText.endIndex, offsetBy: -1))
+        //setCalcAreaLabel(calculation: Float(currentText)!)
+    }
+    func calculatorHelper(){
+        calculateAnswer()
+        saveValueofAnswer()
+        setCalcAreaLabel(calculation: calcAnswer)
+        initialCalcAreaInputState = true
+        //calcAreaLabel.count
     }
     func calculateIt(value1: Double, value2: Double, mathOp: Int) -> Float {
         switch mathOp {
@@ -77,6 +99,13 @@ class CalcController: UIViewController {
                 }
             return calcAnswer
         }
+    func resetValues(){
+        mathOp = -1
+        value1 = 0.0
+        value2 = 0.0
+        calcAnswer = 0.0
+        calcAreaNumber = " "
+    }
     func calculateAnswer(){
         value2 = Double(calcAreaLabel.text!)!
         calcAnswer = calculateIt(value1: value1, value2: value2, mathOp: mathOp)
@@ -92,8 +121,9 @@ class CalcController: UIViewController {
         calcAreaLabel.text = " "
         calcAreaNumber = " "
     }
-    func setCalcAreaLabel (){
-        calcAreaLabel.text = calcAreaNumber
+    func setCalcAreaLabel(calculation: Float){
+        calcAreaLabel.text = String(calculation)
+        currentText = String(calculation)
     }
     func concatCalcAreaLabel(keyNumber: String){ // keyNumber = variable name local to the function, "String" =
         if initialCalcAreaInputState { // if initialCalcAreaInputState is true...
@@ -102,25 +132,24 @@ class CalcController: UIViewController {
         }else{
             calcAreaNumber = calcAreaNumber + keyNumber // works like concatation in C, adds whatever the keyNumber is to the label
         }
-        setCalcAreaLabel() // goes to set label helper
+        setCalcAreaLabel(calculation: Float(calcAreaNumber)!) // goes to set label helper
     }
     func saveValueofAnswer() {  // method to save value of answer after calc to arg1
         mathOp = -1;          // operator is unassigned after calc
         value1 = 0.0     // arg1 is current display value
         value2 = 0.0            // arg2 is now unassigned
-        calcAreaNumber = String(calcAnswer)
+        //calcAreaLabel.text = String(calcAnswer)
     }
+    //OPERATOR MANAGEMENT
     @IBAction func pressEqual(_ sender: UIButton) {
         calculateAnswer()
         saveValueofAnswer()
-        setCalcAreaLabel()
+        setCalcAreaLabel(calculation: calcAnswer)
     }
-    
-    @IBAction func press1(_ sender: UIButton) {
-        let keyNumber:(String) = "1"
-        concatCalcAreaLabel(keyNumber: keyNumber) // (what the new variable is going to be in the func: variable from current function)
+    @IBAction func pressClear(_ sender: UIButton) {
+        clearCalcAreaLabel()
+        resetValues()
     }
-    //OPERATOR MANAGEMENT
     @IBAction func minusOp(_ sender: UIButton) {
         saveOperator(opNumber: MINUS)
         saveValue1()
@@ -148,19 +177,23 @@ class CalcController: UIViewController {
     @IBAction func fractionOp(_ sender: UIButton) {
         saveOperator(opNumber: FRACTION)
         saveValue1()
-        clearCalcAreaLabel()
+        calculatorHelper()
     }
     @IBAction func cubeOp(_ sender: UIButton) {
         saveOperator(opNumber: CUBE)
         saveValue1()
-        clearCalcAreaLabel()
+        calculatorHelper()
     }
     @IBAction func squareOp(_ sender: UIButton) {
         saveOperator(opNumber: SQR)
         saveValue1()
-        clearCalcAreaLabel()
+        calculatorHelper()
     }
     //NUMBER MANAGEMENT
+     @IBAction func press1(_ sender: UIButton) {
+           let keyNumber:(String) = "1"
+           concatCalcAreaLabel(keyNumber: keyNumber) // (what the new variable is going to be in the func: variable from current function)
+       }
     @IBAction func press2(_ sender: UIButton) {
         let keyNumber:(String) = "2"
         concatCalcAreaLabel(keyNumber: keyNumber)
@@ -201,8 +234,31 @@ class CalcController: UIViewController {
         let keyNumber:(String) = "."
         concatCalcAreaLabel(keyNumber: keyNumber)
     }
-    
-    /*
+    // reference code for position access in swift
+     /*let greeting = "Guten Tag!"
+     greeting[greeting.startIndex]
+     // G
+     greeting[greeting.index(before: greeting.endIndex)]
+     // !
+     greeting[greeting.index(after: greeting.startIndex)]
+     // u
+     let index = greeting.index(greeting.startIndex, offsetBy: 7)
+     greeting[index]
+     // a
+      var welcome = "hello"
+      welcome.insert("!", at: welcome.endIndex)
+      // welcome now equals "hello!"
+
+      welcome.insert(contentsOf: " there", at: welcome.index(before: welcome.endIndex))
+      // welcome now equals "hello there!"
+      To remove a single character from a string at a specified index, use the remove(at:) method, and to remove a substring at a specified range, use the removeSubrange(_:) method:
+
+      welcome.remove(at: welcome.index(before: welcome.endIndex))
+      // welcome now equals "hello there"
+
+      let range = welcome.index(welcome.endIndex, offsetBy: -6)..<welcome.endIndex
+      welcome.removeSubrange(range)
+      // welcome now equals "hello"*/    /*
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation

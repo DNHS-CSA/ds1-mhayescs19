@@ -187,6 +187,9 @@
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="layer.CliptoBounds" value="YES"/>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="pressClear:" destination="K5D-cC-M5V" eventType="touchUpInside" id="Bkk-xV-UDl"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jE0-ym-DW4">
                                 <rect key="frame" x="108" y="241" width="75" height="75"/>
@@ -434,12 +437,17 @@
                                     <action selector="plusOp:" destination="K5D-cC-M5V" eventType="touchUpInside" id="DFg-52-vA7"/>
                                 </connections>
                             </button>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zoZ-65-bvi" userLabel="displayDetector">
+                                <rect key="frame" x="25" y="85" width="325" height="65"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="fQl-EU-GYs"/>
                     </view>
                     <connections>
                         <outlet property="calcAreaLabel" destination="y8w-k7-Wgp" id="dwa-m6-itq"/>
+                        <outlet property="displayDetector" destination="zoZ-65-bvi" id="Xh3-ZX-Olv"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Iw3-OJ-cJp" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
