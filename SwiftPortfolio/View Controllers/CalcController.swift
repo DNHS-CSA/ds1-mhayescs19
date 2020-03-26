@@ -12,6 +12,7 @@ class CalcController: UIViewController {
     // nessecary components of calculator
     @IBOutlet weak var calcAreaLabel: UILabel!
     var initialCalcAreaInputState:(Bool) = true // sets state for first number
+    var numberWithDecimal:(Bool) = false
     var calcAreaNumber:(String) = String() // String() = empty string
     var currentText:(String) = String()
     var value1:(Double) = 0
@@ -44,9 +45,19 @@ class CalcController: UIViewController {
     @objc func swipeGesture(sender: UISwipeGestureRecognizer?){
         //let range = currentText.index(currentText.endIndex, offsetBy: -2)..<currentText.endIndex
         //currentText.removeSubrange(range)
-        currentText.insert(contentsOf:"\0", at: currentText.index(currentText.endIndex, offsetBy: -1))
+        //currentText.insert(contentsOf:"", at: currentText.index(currentText.endIndex, offsetBy: -1))
+        let size = calcAreaLabel.text!.count
+        if (size - 1) == 0 { // if subtracting a digit would leave nothing, to prevent an out of bounds String.index, sets the calcAreaLabel to zero
+            calcAreaLabel.text = String(0)
+            initialCalcAreaInputState = true // makes sure the next digit pressed overwrites the zero that is set
+        }else{
+            //let lastDigit = calcAreaLabel.text!.index(calcAreaLabel.text!.endIndex, offsetBy: -2)
+            let lastDigit = calcAreaLabel.text!.index(before: calcAreaLabel.text!.endIndex)
+            calcAreaLabel.text!.remove(at: lastDigit) // removes last digit
+        }
+        
         //currentText.remove(at: currentText.index(currentText.endIndex, offsetBy: -1))
-        //setCalcAreaLabel(calculation: Float(currentText)!)
+
     }
     func calculatorHelper(){
         calculateAnswer()
@@ -118,6 +129,7 @@ class CalcController: UIViewController {
     }
     func clearCalcAreaLabel(){
         initialCalcAreaInputState = true
+        numberWithDecimal = false
         calcAreaLabel.text = " "
         calcAreaNumber = " "
     }
@@ -125,14 +137,29 @@ class CalcController: UIViewController {
         calcAreaLabel.text = String(calculation)
         currentText = String(calculation)
     }
+    func setCalcAreaLabelInt(calculation: Int){
+        calcAreaLabel.text = String(calculation)
+        currentText = String(calculation)
+    }
     func concatCalcAreaLabel(keyNumber: String){ // keyNumber = variable name local to the function, "String" =
         if initialCalcAreaInputState { // if initialCalcAreaInputState is true...
             calcAreaNumber = keyNumber
             initialCalcAreaInputState = false // sets state for second number
+            setCalcAreaLabelInt(calculation: Int(calcAreaNumber)!) // goes to set label helper
+            return
         }else{
             calcAreaNumber = calcAreaNumber + keyNumber // works like concatation in C, adds whatever the keyNumber is to the label
+            if keyNumber == "." {
+                setCalcAreaLabel(calculation: Float(calcAreaNumber)!)
+                numberWithDecimal = true
+                return
+            }
+            if numberWithDecimal == false {
+                setCalcAreaLabelInt(calculation: Int(calcAreaNumber)!)
+                return
+            }
+            setCalcAreaLabel(calculation: Float(calcAreaNumber)!)
         }
-        setCalcAreaLabel(calculation: Float(calcAreaNumber)!) // goes to set label helper
     }
     func saveValueofAnswer() {  // method to save value of answer after calc to arg1
         mathOp = -1;          // operator is unassigned after calc
@@ -160,7 +187,8 @@ class CalcController: UIViewController {
         saveValue1()
         clearCalcAreaLabel()
     }
-    @IBAction func multiplyOp(_ sender: UIButton) {        saveOperator(opNumber: MULTIPLY)
+    @IBAction func multiplyOp(_ sender: UIButton) {
+        saveOperator(opNumber: MULTIPLY)
         saveValue1()
         clearCalcAreaLabel()
     }
