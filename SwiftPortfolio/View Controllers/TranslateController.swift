@@ -25,7 +25,8 @@ class TranslateController: UIViewController {
         let originalArray: [String] = translator(textOriginal: String(textOriginal.text!)) // gets tokenized array of string for use in other translate functions
         
         shorthandLabel.text = createShorthandPhrase(originalArray: originalArray)
-        
+        pigLatinLabel.text = createPigLatinPhrase(originalArray: originalArray)
+        palindromeCheck.text = createPalindromePhrase(originalArray: originalArray)
         
     }
     func translator(textOriginal: String) -> ([String]) {
@@ -37,7 +38,7 @@ class TranslateController: UIViewController {
         return originalArray
     }
     func createShorthandPhrase(originalArray: [String]) -> String {
-        let shortHandArray: [String] = originalArray // defines an empty array the size of the phrases
+        let shortHandArray: [String] = originalArray // copies array size of original for the translation
         var shortHandPhrase: [String] = [String()] // empty string array similar to C version
         let wordCount = shortHandArray.count // counter for number of words to "translate"
         
@@ -46,10 +47,35 @@ class TranslateController: UIViewController {
             shortHandPhrase.insert(shorthand(word: [shortHandArray[i]]), at: shortHandPhrase.endIndex)
             i += 1 // i++
         }
-        let shortHandForLabel: String = shortHandPhrase.joined(separator: " ")
+        let shortHandForLabel: String = shortHandPhrase.joined(separator: " ") // mimics concat of C, uses the characters in the array
         return shortHandForLabel
     }
-
+    func createPigLatinPhrase(originalArray: [String]) -> String {
+        let pigLatinArray: [String] = originalArray // copies array size of original for the translation
+        var pigLatinPhrase: [String] = [String()] // empty string array similar to C version
+        let wordCount = pigLatinArray.count // counter for number of words to "translate"
+        
+        var i = 0
+        while i <= (wordCount - 1) {
+            pigLatinPhrase.insert(piglatin(word: [pigLatinArray[i]]), at: pigLatinPhrase.endIndex)
+            i += 1 // i++
+        }
+        let pigLatinForLabel: String = pigLatinPhrase.joined(separator: " ") // mimics concat of C, uses the characters in the array
+        return pigLatinForLabel
+    }
+    func createPalindromePhrase(originalArray: [String]) -> String {
+        let palindromeArray: [String] = originalArray // defines an empty array the size of the phrases
+        
+        let compactedPhrase: String = palindromeArray.joined() // makes the array a string with no spaces between elements
+        if compactedPhrase == String(compactedPhrase.reversed()) {
+            let palindromeForLabel = "Is a palindrome" // excess line, but used to follow format
+            return palindromeForLabel
+        }else if compactedPhrase != String(compactedPhrase.reversed()){
+            let palindromeForLabel = "Not a palindrome"
+            return palindromeForLabel
+        }
+        return "Critical Error" // code should not reach this return
+    }
     /*
     // MARK: - Navigation
 

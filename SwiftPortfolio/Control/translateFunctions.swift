@@ -37,13 +37,10 @@ func shorthand(word: [String]) -> String {
     }
     
     var masterCounter = 0
-    let wordLength = word.count
+    var wordLength = word.count
     
     while masterCounter < wordLength {
         if yesVowel(letter: String(word[word.index(word.startIndex, offsetBy: masterCounter)])) == 0 {
-            
-            var letterMover = masterCounter
-            while letterMover < wordLength {
                 /*
                  * Moving letters using String Index
                  * 1. remove indentified vowel
@@ -51,13 +48,47 @@ func shorthand(word: [String]) -> String {
                  * 2. takes that character and moves it over to rewrite over the vowel
                  */
                 
-                word.insert(word[word.index(word.startIndex, offsetBy: letterMover + 1)], at: word.index(word.startIndex, offsetBy: letterMover)) // moves letters over one to replace the vowel (really inserts character in front of other character)
-                //word.remove(at: word.index(word.startIndex, offsetBy: letterMover)) // removes character at current place (vowel character)
-                letterMover += 1
-            }
+                word.remove(at: word.index(word.startIndex, offsetBy: masterCounter)) // removes character at current place (vowel character)
+            
             masterCounter -= 1 // if a vowel is detected, recheck that character again
+            wordLength -= 1 // if a vowel is removed, then the word length decreases by one
         }
         masterCounter += 1 // moves to next character in word
     }
+    return word
+}
+func piglatin(word: [String]) -> String{
+    var word:String = word.joined() // converts array to string
+    
+    var masterCounter = 0
+    let wordLength = word.count
+    
+    while masterCounter < wordLength {
+        var mover = 0 // counter to align with movement of characters
+        if yesVowel(letter: String(word[word.index(word.startIndex, offsetBy: masterCounter)])) == 0 {
+            return word + "yay"
+        }else{
+            if yesVowel(letter: String(word[word.index(word.startIndex, offsetBy: mover)])) == 1 {
+                        /*
+                         * Moving letters using String Index
+                         * 1. remove indentified vowel
+                         * 1. uses the index to take the letter one to the right of the vowel
+                         * 2. takes that character and moves it over to rewrite over the vowel
+                         */
+                        word.insert(word[word.index(word.startIndex, offsetBy: masterCounter)], at: word.index(word.endIndex, offsetBy: 0)) // moves first character to end of word
+                        word.remove(at: word.index(word.startIndex, offsetBy: masterCounter)) // deletes first character
+                    
+                    mover -= 1
+                }else if yesVowel(letter: String(word[word.index(word.startIndex, offsetBy: mover)])) == 0 {
+                    return word + "ay" // returns pigged word
+                }
+                masterCounter += 1
+            }
+        }
+    return word
+}
+func palindrome (word: [String]) -> String {
+    var word: String = word.joined()
+    
     return word
 }
