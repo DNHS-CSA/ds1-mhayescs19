@@ -22,19 +22,32 @@ class TranslateController: UIViewController {
         
     }
     @IBAction func translateIt(_ sender: UIButton) {
-        translator(textOriginal: String(textOriginal.text!))
+        let originalArray: [String] = translator(textOriginal: String(textOriginal.text!)) // gets tokenized array of string for use in other translate functions
+        
+        shorthandLabel.text = createShorthandPhrase(originalArray: originalArray)
+        
+        
     }
-    func translator(textOriginal: String){
+    func translator(textOriginal: String) -> ([String]) {
         // Tokenizer
         let sentenceSpace = " "
         let originalArray: [String] = textOriginal.components(separatedBy: sentenceSpace)
-        let wordCount = originalArray.count
-        var reversedArray: [String] = textOriginal.components(separatedBy: sentenceSpace)// defines an empty array the size of the phrases
-    }
-    func createShorthandPhrase(word: String, wordCount: Int){
-        for wordCount in word {
+        //let wordCount = originalArray.count
     
+        return originalArray
+    }
+    func createShorthandPhrase(originalArray: [String]) -> String {
+        let shortHandArray: [String] = originalArray // defines an empty array the size of the phrases
+        var shortHandPhrase: [String] = [String()] // empty string array similar to C version
+        let wordCount = shortHandArray.count // counter for number of words to "translate"
+        
+        var i = 0
+        while i <= (wordCount - 1) {
+            shortHandPhrase.insert(shorthand(word: [shortHandArray[i]]), at: shortHandPhrase.endIndex)
+            i += 1 // i++
         }
+        let shortHandForLabel: String = shortHandPhrase.joined(separator: " ")
+        return shortHandForLabel
     }
 
     /*
