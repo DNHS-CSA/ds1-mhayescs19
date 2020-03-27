@@ -87,8 +87,16 @@ func piglatin(word: [String]) -> String{
         }
     return word
 }
-func palindrome (word: [String]) -> String {
-    var word: String = word.joined()
+func reversed(word: [String]) -> String {
+    let word: String = word.joined() // converts array to String
+    var wordR: String = String() // defines an empty string to copy the word into
     
-    return word
+    let wordLength = word.count
+    var masterCounter = 0
+    while masterCounter < wordLength {
+            
+        wordR.insert(word[word.index(word.endIndex, offsetBy: (-masterCounter - 1))], at: wordR.index(wordR.startIndex, offsetBy: masterCounter))
+            masterCounter += 1 // if a vowel is detected, recheck that character again
+    }
+    return wordR
 }

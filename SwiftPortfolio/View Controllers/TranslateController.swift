@@ -23,7 +23,7 @@ class TranslateController: UIViewController {
     }
     @IBAction func translateIt(_ sender: UIButton) {
         let originalArray: [String] = translator(textOriginal: String(textOriginal.text!)) // gets tokenized array of string for use in other translate functions
-        
+        reversedLabel.text = createReversedPhrase(originalArray: originalArray)
         shorthandLabel.text = createShorthandPhrase(originalArray: originalArray)
         pigLatinLabel.text = createPigLatinPhrase(originalArray: originalArray)
         palindromeCheck.text = createPalindromePhrase(originalArray: originalArray)
@@ -63,14 +63,27 @@ class TranslateController: UIViewController {
         let pigLatinForLabel: String = pigLatinPhrase.joined(separator: " ") // mimics concat of C, uses the characters in the array
         return pigLatinForLabel
     }
+    func createReversedPhrase(originalArray: [String]) -> String {
+        let reversedArray: [String] = originalArray // copies array size of original for the translation
+        var reversedPhrase: [String] = [String()] // empty string array similar to C version
+        let wordCount = reversedArray.count // counter for number of words to "translate"
+        
+        var i = 0
+        while i <= (wordCount - 1) {
+            reversedPhrase.insert(reversed(word: [reversedArray[i]]), at: reversedPhrase.endIndex)
+            i += 1 // i++
+        }
+        let reversedForLabel: String = reversedPhrase.joined(separator: " ") // mimics concat of C, uses the characters in the array
+        return reversedForLabel
+    }
     func createPalindromePhrase(originalArray: [String]) -> String {
         let palindromeArray: [String] = originalArray // defines an empty array the size of the phrases
         
-        let compactedPhrase: String = palindromeArray.joined() // makes the array a string with no spaces between elements
-        if compactedPhrase == String(compactedPhrase.reversed()) {
+        let compactedPhrase: String = palindromeArray.joined().lowercased() // makes the array a string with no spaces between elements
+        if compactedPhrase == String(compactedPhrase.lowercased().reversed()) {
             let palindromeForLabel = "Is a palindrome" // excess line, but used to follow format
             return palindromeForLabel
-        }else if compactedPhrase != String(compactedPhrase.reversed()){
+        }else if compactedPhrase != String(compactedPhrase.lowercased().reversed()){
             let palindromeForLabel = "Not a palindrome"
             return palindromeForLabel
         }
