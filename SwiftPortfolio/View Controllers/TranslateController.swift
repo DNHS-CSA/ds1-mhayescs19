@@ -27,7 +27,7 @@ class TranslateController: UIViewController {
         shorthandLabel.text = createShorthandPhrase(originalArray: originalArray)
         pigLatinLabel.text = createPigLatinPhrase(originalArray: originalArray)
         palindromeCheck.text = createPalindromePhrase(originalArray: originalArray)
-        
+        textOriginal.resignFirstResponder()
     }
     func translator(textOriginal: String) -> ([String]) {
         // Tokenizer

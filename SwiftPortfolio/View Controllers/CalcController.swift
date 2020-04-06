@@ -141,6 +141,10 @@ class CalcController: UIViewController {
         calcAreaLabel.text = String(calculation)
         currentText = String(calculation)
     }
+    func setCalcAreaLabelString(calculation: String){
+        calcAreaLabel.text = String(calculation)
+        currentText = String(calculation)
+    }
     func concatCalcAreaLabel(keyNumber: String){ // keyNumber = variable name local to the function, "String" =
         if initialCalcAreaInputState { // if initialCalcAreaInputState is true...
             calcAreaNumber = keyNumber
@@ -150,7 +154,7 @@ class CalcController: UIViewController {
         }else{
             calcAreaNumber = calcAreaNumber + keyNumber // works like concatation in C, adds whatever the keyNumber is to the label
             if keyNumber == "." {
-                setCalcAreaLabel(calculation: Float(calcAreaNumber)!)
+                setCalcAreaLabelString(calculation: String(calcAreaNumber))
                 numberWithDecimal = true
                 return
             }
