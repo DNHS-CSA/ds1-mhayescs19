@@ -24,6 +24,8 @@
 		84455D8524208C060042F189 /* calculator.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84455D8324208C060042F189 /* calculator.storyboard */; };
 		84455D8724208C520042F189 /* CalcController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84455D8624208C520042F189 /* CalcController.swift */; };
 		84AFC8AD243E8C6D00A68737 /* SwiftPortfolio.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 84AFC8AB243E8C6D00A68737 /* SwiftPortfolio.xcdatamodeld */; };
+		84FE625924401742004DDE73 /* loginLab.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84FE625724401742004DDE73 /* loginLab.storyboard */; };
+		84FE625B24401760004DDE73 /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FE625A24401760004DDE73 /* LoginController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -47,6 +49,8 @@
 		84455D8424208C060042F189 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/calculator.storyboard; sourceTree = "<group>"; };
 		84455D8624208C520042F189 /* CalcController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalcController.swift; sourceTree = "<group>"; };
 		84AFC8AC243E8C6D00A68737 /* SwiftPortfolio.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = SwiftPortfolio.xcdatamodel; sourceTree = "<group>"; };
+		84FE625824401742004DDE73 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/loginLab.storyboard; sourceTree = "<group>"; };
+		84FE625A24401760004DDE73 /* LoginController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
 		BDC7CB9996311D61EE022508 /* Pods-SwiftPortfolio.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftPortfolio.release.xcconfig"; path = "Target Support Files/Pods-SwiftPortfolio/Pods-SwiftPortfolio.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -102,6 +106,7 @@
 				0353AE97241BDDC300655224 /* CelsiusController.swift */,
 				84455D8624208C520042F189 /* CalcController.swift */,
 				84439D1C2429DD370028D594 /* TranslateController.swift */,
+				84FE625A24401760004DDE73 /* LoginController.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -124,6 +129,7 @@
 				0353AE92241BDD8900655224 /* celsiusLab.storyboard */,
 				84455D8324208C060042F189 /* calculator.storyboard */,
 				84439D192429DCE40028D594 /* translateLab.storyboard */,
+				84FE625724401742004DDE73 /* loginLab.storyboard */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -223,6 +229,7 @@
 			files = (
 				039DA94024169AA300975379 /* LaunchScreen.storyboard in Resources */,
 				0353AE94241BDD8900655224 /* celsiusLab.storyboard in Resources */,
+				84FE625924401742004DDE73 /* loginLab.storyboard in Resources */,
 				03ACA577241A8A2600F18F05 /* pythoLab.storyboard in Resources */,
 				039DA93B24169A9600975379 /* Main.storyboard in Resources */,
 				84455D82241C48190042F189 /* Assets.xcassets in Resources */,
@@ -289,6 +296,7 @@
 				039DA93624169A9600975379 /* SceneDelegate.swift in Sources */,
 				84439D1D2429DD370028D594 /* TranslateController.swift in Sources */,
 				84AFC8AD243E8C6D00A68737 /* SwiftPortfolio.xcdatamodeld in Sources */,
+				84FE625B24401760004DDE73 /* LoginController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -341,6 +349,14 @@
 				84455D8424208C060042F189 /* Base */,
 			);
 			name = calculator.storyboard;
+			sourceTree = "<group>";
+		};
+		84FE625724401742004DDE73 /* loginLab.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				84FE625824401742004DDE73 /* Base */,
+			);
+			name = loginLab.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
